@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patchswarm"
+version = "1.0.0"
+description = "Autonomous five-agent swarm that scans dependency manifests, triages known vulnerabilities, proposes pinned patches, and always ships a structured report."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Mehul Patel" }]
+requires-python = ">=3.9"
+dependencies = []  # zero runtime dependencies, deliberately
+keywords = [
+  "multi-agent",
+  "asyncio",
+  "security",
+  "supply-chain",
+  "vulnerability-management",
+  "event-bus",
+  "agents",
+  "orchestration",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Framework :: AsyncIO",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+patchswarm = "patchswarm.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
